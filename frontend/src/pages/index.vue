@@ -73,6 +73,7 @@
 import { Vue, Component, Watch } from 'vue-property-decorator'
 import { Mixins } from 'vue-mixin-decorator'
 import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
+import { MutationAction } from 'vuex-module-decorators'
 // Store
 import { StateBindingHelper } from 'vuex-class/lib/bindings'
 import { actionTypes } from '../store/action-types'
@@ -99,6 +100,27 @@ import { constants } from 'os'
 
 @Component({ components: { AppVersion } })
 export default class WKSSlide extends Mixins(BaseSlide) {
+  /*
+  * GET_SLIDES
+  * @descrition - 
+  * @decorator - @Action
+  * @name - actionTypes.GET_SLIDES
+  * @type - Action<T>
+  * @arguments - namespace - 
+  * */
+  @Action(actionTypes.GET_SLIDES, { namespace: 'slidesState' })
+  getSlides: (nodeAlias: string) => {}
+
+  /*
+  * slides
+  * @descrition - The slides object from Drupal 
+  * @decorator - @State
+  * @name - slides
+  * @type - State<T>
+  * @arguments - namespace - slidesState
+  * */
+  @State('slides', { namespace: 'slidesState' })
+  slides: any 
   /**
    * @name - currentSlide
    *
@@ -138,63 +160,7 @@ export default class WKSSlide extends Mixins(BaseSlide) {
     }
 
     this.setSlideConfig(this.localOptions)
-    this.fetchSlides()
-  }
-
-  private fetchSlides() {
-    const func = async (nodeAlias: string) => {
-      const response: any = await graphqlClient.query({
-        query: gql`
-          fragment slideshowFragment on ParagraphSlideshow {
-            ... on ParagraphSlideshow {
-              fieldPanelHeader
-              fieldSlide {
-                entity {
-                  ...slideFragment
-                }
-              }
-            }
-          }
-          fragment slideFragment on ParagraphSlide {
-            ... on ParagraphSlide {
-              fieldSlideText
-              fieldSlideImage {
-                alt
-                sm: derivative(style: _600X500) {
-                  url
-                }
-                md: derivative(style: _960X500) {
-                  url
-                }
-                lg: derivative(style: _1200X600) {
-                  url
-                }
-                xlg: derivative(style: _1400X800) {
-                  url
-                }
-              }
-            }
-          }
-
-          query pageGqlView($field_alias_value: String!) {
-            pageGqlView(contextualFilter: { field_alias_value: $field_alias_value }) {
-              results {
-                ... on NodePage {
-                  fieldPanels {
-                    entity {
-                      ...slideshowFragment
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `,
-        variables: { field_alias_value: nodeAlias }
-      })
-     console.log('Page RESP: ', response.data.pageGqlView.results[0])
-    }
-    func('/sample-page')
+    this.getSlides('/sample-page')
   }
 
   /**

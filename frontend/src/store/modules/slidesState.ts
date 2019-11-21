@@ -1,14 +1,18 @@
 import { mutationTypes } from '../mutation-types'
 import { getterTypes } from '../getter-types'
-import { Module, Mutation, VuexModule } from 'vuex-module-decorators'
+import { actionTypes } from '../action-types'
+import { Module, Mutation, VuexModule, Action, MutationAction } from 'vuex-module-decorators'
 import { FPOptions } from '~/src/typings/vue'
 
+// GraphQL
+import gql from 'graphql-tag'
+import graphqlClient from '../../apollo/clients/default'
 /**
  *  @name - SlidesState
  *
  *  @desc - State for FullPageJS slides.
  *
- *  @author - Chip Moeser 
+ *  @author - Chip Moeser
  *
  *  Mon May 13 12:29:13 EDT 2019
  */
@@ -19,6 +23,7 @@ import { FPOptions } from '~/src/typings/vue'
   name: 'slidesState'
 })
 export default class SlidesModule extends VuexModule {
+  public slides: object = {}
   /**
    * slideTone
    *
@@ -89,7 +94,6 @@ export default class SlidesModule extends VuexModule {
    */
   @Mutation
   [mutationTypes.SET_SLIDE_TONE](slideTone: string): void {
-    // console.log('ST: ', slideTone)
     this.slideTone = slideTone
   }
   /**
@@ -114,5 +118,64 @@ export default class SlidesModule extends VuexModule {
   @Mutation
   [mutationTypes.SET_SLIDE_CONFIG](slideOptions: FPOptions): void {
     Object.assign(this.fpOptions, slideOptions)
+  }
+
+  @MutationAction({ mutate: [ 'slides' ] })
+  async [actionTypes.GET_SLIDES]({ commit }, nodeAlias: string) {
+    console.log('CALLED')
+    const response: any = await graphqlClient.query({
+      query: gql`
+        fragment slideshowFragment on ParagraphSlideshow {
+          ... on ParagraphSlideshow {
+            fieldPanelHeader
+            fieldSlide {
+              entity {
+                ...slideFragment
+              }
+            }
+          }
+        }
+        fragment slideFragment on ParagraphSlide {
+          ... on ParagraphSlide {
+            fieldSlideText
+            fieldSlideImage {
+              alt
+              sm: derivative(style: _600X500) {
+                url
+              }
+              md: derivative(style: _960X500) {
+                url
+              }
+              lg: derivative(style: _1200X600) {
+                url
+              }
+              xlg: derivative(style: _1400X800) {
+                url
+              }
+            }
+          }
+        }
+
+        query pageGqlView($field_alias_value: String!) {
+          pageGqlView(contextualFilter: { field_alias_value: $field_alias_value }) {
+            results {
+              ... on NodePage {
+                fieldPanels {
+                  entity {
+                    ...slideshowFragment
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+      variables: { field_alias_value: '/sample-page' }
+    })
+    console.log('Page RESP: ', response.data.pageGqlView.results[0].fieldPanels[0].entity)
+    return {
+      slides: response.data.pageGqlView.results[0].fieldPanels[0].entity
+    }
+    
   }
 }
