@@ -27,7 +27,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 import { Mixins } from 'vue-mixin-decorator'
 // Utils
-import WKSBaseSlide from '../mixins/WKSBaseSlide'
+import BaseSlide from '../mixins/BaseSlide'
 // Components
 
 import error from '../typings/vue'
@@ -61,7 +61,7 @@ import error from '../typings/vue'
   components: {
   }
 })
-export default class WKSSlide extends Mixins(WKSBaseSlide) {
+export default class WKSSlide extends Mixins(BaseSlide) {
   /**
    * @name - mounted
    *

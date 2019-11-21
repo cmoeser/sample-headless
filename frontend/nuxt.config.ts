@@ -6,11 +6,9 @@
  *  Sat Mar 9 15:34:10 EST 2019
  */
 
-
 const path = require('path')
 const parseArgs = require('minimist')
 const postcssFunctions = require('postcss-functions')
-
 
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
@@ -94,11 +92,11 @@ module.exports = {
   },
 
   manifest: {
-    name: 'Sample: An Integrated Brand Engagement Engine',
+    name: 'Sample',
     short_name: 'Sample',
     background_color: '#081f2d',
     description:
-      "Sample, an integrated brand engagement engine, works with clients across multiple industries to meet and exceed their marketing goals. We're the marketing agency you want by your side."
+      "Sample - Site description"
   },
   /*
    ** Customize the progress-bar color
@@ -128,30 +126,20 @@ module.exports = {
   },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://www.yourSample.com',
+    hostname: 'https://dev-sample-headless-backend.pantheonsite.io',
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
     routes: [
-      '/portfolio',
-      '/portfolio/bf-goodrich',
-      '/portfolio/north-country-school',
-      '/portfolio/brewery-ommegang',
-      '/portfolio/north-country-savings-bank',
-      'contact',
-      '/contact/lake-placid',
-      '/contact/saratoga'
+      '/',
     ],
-    exclude: [
-      '/services/strategic-consulting',
-      '/services/branding-messaging'
-    ]
+    exclude: []
   },
   // Give apollo module options
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://brain.yourSample.com/graphql/'
+        httpEndpoint: 'https://dev-sample-headless-backend.pantheonsite.io/graphql/'
       }
     }
   },
@@ -204,44 +192,6 @@ module.exports = {
           flexbox: true
         }
       }
-      /*
-      postcssFunctions: {  
-        functions: {
-          glob: path.join(__dirname, '/assets/css/functions', '*.js')
-        }
-      }*/
     }
-
-    /*
-     ** You can extend webpack config here
-     */
-
-    /*
-    extend(config, { isServer }) {
-      console.log('TRANSPILE')
-      config.module.rules.push({
-        test: /\.js$/,
-        include: [path.join(__dirname, '/node_modules/node-fetch')],
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
-        }
-      })
-    }
-    */
-
-    /*
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: "pre",
-          test: /\.(js|vue)$/,
-          loader: "eslint-loader",
-          exclude: /(node_modules)/
-        })
-      }
-    }
-    */
   }
 }

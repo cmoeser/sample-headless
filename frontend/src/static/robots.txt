@@ -1,4 +1,4 @@
-Sitemap: https://www.yourworkshop.com/sitemap.xml
+Sitemap: https://dev-sample-headless-backend.pantheonsite.io/sitemap.xml
 User-agent: * 
 
 # Misc

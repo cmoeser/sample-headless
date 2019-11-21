@@ -1,4 +1,4 @@
-# adw-listings-pwa-prototype  
+# sample  
 
 # Getting started  
 Clone this repo  

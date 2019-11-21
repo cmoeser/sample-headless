@@ -22,7 +22,7 @@ import { actionTypes } from '../store/action-types'
 import { getterTypes } from '../store/getter-types'
 import { mutationTypes } from '../store/mutation-types'
 // Utils
-import WKSBaseSlide from '../mixins/WKSBaseSlide'
+import BaseSlide from '../mixins/BaseSlide'
 // Components
 import SimplePanel from '../components/SimplePanel.vue'
 
@@ -32,12 +32,12 @@ import gql from 'graphql-tag'
 import { constants } from 'os'
 
 /**
- *  Workshop Front End
- *  @desc Index page for workshop site.
+ *  sample Front End
+ *  @desc Index page for sample site.
  *
  *  @author Chip Moeser 
  *
- *  Wed Sep 4 16:27:48 EDT 2019
+ * Wed Nov 20 19:52:41 EST 2019
  */
 
 @Component({
@@ -45,12 +45,12 @@ import { constants } from 'os'
     SimplePanel
   }
 })
-export default class WKSSlide extends Mixins(WKSBaseSlide) {
+export default class WKSSlide extends Mixins(BaseSlide) {
   protected simplePanels: Array<any> = []
 
 
   protected created(): void {
-    // Local options declared in WKSBaseSlide
+    // Local options declared in BaseSlide
     this.localOptions = {
       sectionsColor: [
         this.appColors.midnightBlue,

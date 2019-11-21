@@ -11,7 +11,7 @@ import { EntityMetaTags } from '../../typings/vue'
  *
  *  @author - Chip Moeser 
  *
- *  Mon May 13 12:13:01 EDT 2019
+ *  ###### Wed Nov 20 19:56:55 EST 2019
  */
 
 @Module({
@@ -47,14 +47,6 @@ export default class AppModule extends VuexModule {
    * @type - boolean
    */
   private menuMobileIsOpened: boolean = false
-  /**
-   * modalIsOpened
-   *
-   * @description -
-   *
-   * @type - boolean
-   */
-  private modalIsOpened: boolean = false
   /**
    * baseURL
    *
