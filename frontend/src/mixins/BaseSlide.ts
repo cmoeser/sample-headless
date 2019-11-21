@@ -10,7 +10,7 @@ import { FPOptions, AppColors } from '../typings/vue'
 /**
  *  @name - BaseSlide
  *
- *  @desc - Class for inherting base functionality
+ *  @desc - Base Class for inherting base functionality
  *
  *  @author - Chip Moeser 
  *

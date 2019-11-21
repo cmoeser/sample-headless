@@ -114,7 +114,7 @@ ol.ol li:before {
 }
 .flipped .button:hover {
   color: var(--white);
-  background-color: var(--midnight-blue);
+  background-color: var(--iin-red);
 }
 
 .wks-seo {

@@ -4,8 +4,13 @@ import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemo
 import fetch from 'isomorphic-fetch'
 
 /**
- * fragmentMatcher
+ * @name - fragmentMatcher
+ * 
  * @description - Entity fields such as panels can have multiple value types. This fixes "hueristic fragment errors"
+ * Simply put multipe paragrph types can come from single query entity point. 
+ * GraphQL uses these structures for cachng. We use this to allow for propper mapping of that caching.
+ * 
+ * @type - IntrospectionFragmentMatcher
  */
 const fragmentMatcher: IntrospectionFragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData: {
@@ -22,15 +27,17 @@ const fragmentMatcher: IntrospectionFragmentMatcher = new IntrospectionFragmentM
 })
 
 /**
- *  ApolloClient
- *  Creates a new client for Appolo with the Drupal endpoint.
+ *  @name - ApolloClient
+ * 
+ *  @desc - Creates a new client for Appolo with the Drupal endpoint.
  *
- *  @author Chip Moeser 
+ *  @author - Chip Moeser 
  *
- *  Wed Sep 4 16:00:11 EDT 2019
+ *  Wed Nov 20 22:24:11 EST 2019
+ * 
  */
 export default new ApolloClient({
-  // Using a cache for blazingly fast subsequent queries.
+  // Using a cache for fast subsequent queries.
   cache: new InMemoryCache({
     fragmentMatcher
   }),

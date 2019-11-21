@@ -34,7 +34,7 @@
   height: 7px;
   width: 7px;
   background: transparent;
-  border: 1px solid var(--midnight-blue);
+  border: 1px solid var(--iin-red);
 }
 
 #fp-nav.last ul li:last-child a span {
@@ -46,7 +46,7 @@
 
 .light #fp-nav ul li a span,
 .fp-slidesNav ul li a span {
-  border: 1px solid var(--midnight-blue);
+  border: 1px solid var(--iin-red);
 }
 
 .dark #fp-nav ul li a span,
@@ -68,7 +68,7 @@
 .fp-slidesNav ul li:hover a.active span {
   height: 10px;
   width: 10px;
-  background: var(--midnight-blue);
+  background: var(--iin-red);
 }
 
 #fp-nav ul li a.active span,

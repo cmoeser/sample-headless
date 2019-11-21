@@ -3,7 +3,9 @@ import { mutationTypes } from '../mutation-types'
 import { Module, Mutation, VuexModule } from 'vuex-module-decorators'
 import { AppColors } from '~/src/typings/vue'
 
+// Typings
 import { EntityMetaTags } from '../../typings/vue'
+
 /**
  *  @name - AppState
  *
@@ -27,7 +29,7 @@ export default class AppModule extends VuexModule {
    *
    * @type - AppColors - ~/src/typings/vue
    */
-  appColors: AppColors = {
+  private appColors: AppColors = {
     lakeBlue: '#002b49',
     midnightBlue: '#002639',
     innovativeRed: '#ff4438',
