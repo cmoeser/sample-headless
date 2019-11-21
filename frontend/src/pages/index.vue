@@ -3,63 +3,19 @@
     <no-ssr>
       <full-page :options="fpOptions">
         <section role="region" class="section" data-tone="dark">
-          <div
-            v-bind:style="{ backgroundImage: 'url(/images/team_slide_1_full.jpg)' }"
-            class="slide"
-          >
-            <div class="slide-content">
-              <h1>Silly Things</h1>
-              <div class="slide-title">cxzcxzcxsdsfsdf.</div>
-              <div class="slide-tagline">ccxc.</div>
+          <div v-if="this.slides">
+            <div v-for="(slide, index) in this.slides.fieldSlide" :key="index">
+              <div class="slide">
+          
+                <picture>
+              <source :srcset="slide.entity.fieldSlideImage.sm.url" media="(max-width: 599px)" />
+              <source :srcset="slide.entity.fieldSlideImage.md.url" media="(min-width: 959px)" />
+              <source :srcset="slide.entity.fieldSlideImage.lg.url" media="(min-width: 1201px)" />
+              <source :srcset="slide.entity.fieldSlideImage.xlg.url" media="(min-width: 1401px)" />
+              <img :src="slide.entity.fieldSlideImage.md.url" alt="team slide 1" />
+            </picture>
+              </div>
             </div>
-          </div>
-          <div class="slide">
-            <picture>
-              <source srcset="/images/team_slide_2_small.jpg" media="(max-width: 599px)" />
-              <source srcset="/images/team_slide_2_med.jpg" media="(min-width: 959px)" />
-              <source srcset="/images/team_slide_2_full.jpg" media="(min-width: 1201px)" />
-              <img src="/images/team_slide_2_med.jpg" alt="team slide 1" />
-            </picture>
-          </div>
-          <div class="slide">
-            <picture>
-              <source srcset="/images/team_slide_3_small.jpg" media="(max-width: 599px)" />
-              <source srcset="/images/team_slide_3_med.jpg" media="(min-width: 959px)" />
-              <source srcset="/images/team_slide_3_full.jpg" media="(min-width: 1201px)" />
-              <img src="/images/team_slide_3_med.jpg" alt="team slide 2" />
-            </picture>
-          </div>
-          <div class="slide">
-            <picture>
-              <source srcset="/images/team_slide_4_small.jpg" media="(max-width: 599px)" />
-              <source srcset="/images/team_slide_4_med.jpg" media="(min-width: 959px)" />
-              <source srcset="/images/team_slide_4_full.jpg" media="(min-width: 1201px)" />
-              <img src="/images/team_slide_4_med.jpg" alt="team slide 3" />
-            </picture>
-          </div>
-          <div class="slide">
-            <picture>
-              <source srcset="/images/team_slide_5_small.jpg" media="(max-width: 599px)" />
-              <source srcset="/images/team_slide_5_med.jpg" media="(min-width: 959px)" />
-              <source srcset="/images/team_slide_5_full.jpg" media="(min-width: 1201px)" />
-              <img src="/images/team_slide_5_med.jpg" alt="team slide 4" />
-            </picture>
-          </div>
-          <div class="slide">
-            <picture>
-              <source srcset="/images/team_slide_6_small.jpg" media="(max-width: 599px)" />
-              <source srcset="/images/team_slide_6_med.jpg" media="(min-width: 959px)" />
-              <source srcset="/images/team_slide_6_full.jpg" media="(min-width: 1201px)" />
-              <img src="/images/team_slide_6_med.jpg" alt="team slide 5" />
-            </picture>
-          </div>
-          <div class="slide">
-            <picture>
-              <source srcset="/images/team_slide_7_small.jpg" media="(max-width: 599px)" />
-              <source srcset="/images/team_slide_7_med.jpg" media="(min-width: 959px)" />
-              <source srcset="/images/team_slide_7_full.jpg" media="(min-width: 1201px)" />
-              <img src="/images/team_slide_7_med.jpg" alt="team slide 6" />
-            </picture>
           </div>
         </section>
       </full-page>
@@ -120,7 +76,7 @@ export default class WKSSlide extends Mixins(BaseSlide) {
   * @arguments - namespace - slidesState
   * */
   @State('slides', { namespace: 'slidesState' })
-  slides: any 
+  slides: any
   /**
    * @name - currentSlide
    *
