@@ -1,0 +1,72 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es2017",
+      "dom"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
+    "types": [
+      "@types/node",
+      "@nuxt/vue-app"
+    ],
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ],
+      "~/apollo/*": [
+        "./apollo/*"
+      ],
+      "~/apollo/queries/*": [
+        "./apollo/queries/*"
+      ],
+      "~/assets/*": [
+        "./assets/*"
+      ],
+      "~/components/*": [
+        "./components/*"
+      ],
+      "~/middleware/*": [
+        "./middleware/*"
+      ],
+      "~/pages/*": [
+        "./pages/*"
+      ],
+      "~/plugins/*": [
+        "./plugins/*"
+      ],
+      "~/static/*": [
+        "./static/*"
+      ],
+      "~/store/*": [
+        "./store/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/typings"
+  ]
+}

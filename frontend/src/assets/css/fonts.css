@@ -1,0 +1,218 @@
+/* -------------------------------- 
+ *  Typography
+ *
+ *  @author Chip Moeser 
+ *
+ *  Wed Apr 3 15:01:34 EDT 2019
+-------------------------------- */
+
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+:root {
+  --font-primary: 'brandon-grotesque', sans-serif;
+  --font-secondary: 'essonnes-text', serif;
+  --font-headings: 'rift', sans-serif;
+
+  /* set base values */
+  --text-base-size: 1em;
+  --text-scale-ratio: 1.6;
+
+  /* type scale */
+  --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+  --text-sm: calc(1em / var(--text-scale-ratio));
+  --text-md: calc(1em * var(--text-scale-ratio));
+  --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio)
+  );
+  --text-xxl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio) * var(--text-scale-ratio)
+  );
+  --text-xxxl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio)
+  );
+
+  /* Type Colors */
+  --red-font: var(--innovative-red);
+  --black-font: var(--black);
+  --white-font: var(--white);
+
+  /* line-height */
+  --heading-line-height: 1.2;
+  --body-line-height: 1.4;
+
+  /* $headings:(xl: 42 53, l: 28 40, m: 24 30, s: 18 26, xs: 16 26, xxs: 14 22);*/
+  --heading-xxxl {
+    line-height: var(--heading-line-height);
+    font-size: var(--text-xxxl);
+  }
+  --heading-xxl {
+    line-height: var(--heading-line-height);
+    font-size: var(--text-xxl);
+  }
+  --heading-xl {
+    line-height: var(--heading-line-height);
+    font-family: var(--font-headings);
+    font-size: var(--text-xl);
+  }
+  --heading-lg {
+    line-height: var(--heading-line-height);
+    font-size: var(--text-lg);
+  }
+  --heading-md {
+    line-height: var(--heading-line-height);
+    font-size: var(--text-lg);
+  }
+  --heading-sm {
+    line-height: var(--heading-line-height);
+    font-size: var(--text-md);
+  }
+
+  --body {
+    font-size: calc(1.2 * var(--text-base-size));
+  }
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-text);
+}
+
+:--heading {
+  text-transform: uppercase;
+  font-family: var(--font-headings);
+  margin:0;
+}
+
+h1 {
+  @apply --heading-lg;
+  font-weight: 100;
+}
+h2 {
+  @apply --heading-lg;
+  font-weight: bold;
+  margin: 0 0 var(--space-sm);
+}
+h3 {
+  @apply --heading-sm;
+}
+
+/**
+ *  Small Viewport < 60em/960px
+ */
+@media screen and (--small-viewport) {
+  :root {
+    --text-scale-ratio: 1.4;
+  }
+  h2 {
+  }
+}
+/**
+ *  Medium Viewport  60em/960px - 75em/1200px
+ */
+@media screen and (width >= 60.0625em) and (width <= 75.000em) {
+  :root {
+    --text-scale-ratio: 1.4;
+  }
+}
+/**
+ *  large Viewport  > 75em/1201px
+ */
+@media screen and (--large-viewport) {
+  h2 {
+    margin: 0;
+  }
+}
+/*
+$fonts: (main-nav: "'Open Sans',sans-serif", sub-nav: "'Open Sans',sans-serif", headings: "'Oswald',sans-serif", copy: "'Open Sans',sans-serif", button-copy: "'Open Sans',sans-serif", link-size: "'Open Sans',sans-serif");
+
+// @mixin font
+// Get the font-stack for a given type style, based on use case.
+// if you pass in an invalid font stack key, you'll get a warning about it in your terminal.
+// usage:
+// .thing { @include font(copy); }
+// ==>> .thing { font-family:  "'Chronicle SSm A', 'Chronicle SSm B', 'Chronicle Text G1', 'ChronicleTextG1Roman', serif"; }
+@mixin get_font($name) {
+    $all-fonts: map-keys($fonts);
+
+    @if map-has-key($fonts, $name) {
+        font-family: unquote(map-get($fonts, $name));
+    }
+    @else {
+        @warn "#{$name} is not mapped to a font. Try one of these: #{$all-fonts}";
+    }
+}
+*/
+/*
+/ XL is for high-priority elements
+/ L is for modules that, at large views, span > half the page
+/ M is for modules that span between 1/4 and 1/2 the page at large views
+/ S is for anything below that
+
+/ title/headline sizes (these use chronicle deck)
+*/
+/*$headings:(xl: 42 53, l: 28 40, m: 24 30, s: 18 26, xs: 16 26, xxs: 14 22);*/
+
+/* body copy sizes (these use chronicle text) */
+/*$copy:(xl: 18 30, l: 18 30, m: 16 26, s: 14 20, hero-l: 18 26, hero-m: 22 34, hero-s: 16 26, description-l: 28 40);
+
+$input:(l: 18 40, m: 16 30, s: 13 26);
+
+$button-copy:(xl: 21 inherit, l: 18 30, m: 12 30, s: 11 26);
+
+$linkSize:(xxl: 24 56, xl: 18 30, l: 16 26, m: 14 22, s: 12 18);
+*/
+
+/* A few handy functions for getting font vars, plus a mixin for doing both at once */
+/*
+@function type-height($role, $size) {
+    $map: $role;
+    $line-height: nth(map-get($map, $size), 2);
+
+    @return $line-height + px;
+}
+*/
+/*
+/ @function type-size
+/ get the appropriate font size for a context
+/ usage:
+/ font-size: type-size($copy, s);
+/ ==>> font-size: 14px;
+*/
+/*@function type-size($role: $copy, $size: "m") {
+    $map: $role;
+    $text-size: nth(map-get($map, $size), 1);
+
+    @return $text-size * 1px;
+}
+*/
+/*
+/ @mixin type-set
+/ a shortcut for using both of the above, to ensure consistency - use wisely to avoid duplicated css
+/ not implemented yet, but this may include the ability to set typeface this way as well (optional - again, use cautiously)
+/ usage:
+/ .element { @include type-set($copy, s); }
+/ ==>> .element { font-size: 14px; line-height: 1.57; }
+*/
+/*
+@mixin type-set($role: $copy, $family: copy, $size: "m", $weight: 400, $relative: true, $set-face: false) {
+    /*@if( $set-face ) {
+    	@if( $role == $copy ) {
+    		// font-family: chronicle text
+    	}
+    	@else {
+    		// font-family: chronicle deck
+    	}
+    }*/
+/*@include get_font($family);
+
+    font-size: type-size($role, $size);
+    line-height: type-height($role, $size);
+    font-weight: $weight;
+    
+}
+*/

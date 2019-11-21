@@ -1,0 +1,126 @@
+.slide {
+  padding: 0;
+}
+.fp-slides {
+  width: 100%;
+}
+#fp-nav ul  {
+  text-align: right!important;
+}
+#fp-nav ul li,
+.fp-slidesNav ul li {
+  margin: var(--space-md) 60px;
+}
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  height: 7px;
+  width: 7px;
+  background: transparent;
+  border: 1px solid var(--white);
+}
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+  top: 4px;
+  left: 4px;
+}
+
+#fp-nav ul li:hover a.active span, #fp-nav ul li a.active span, .fp-slidesNav ul li:hover a.active span, .fp-slidesNav ul li a.active span {
+  top: 6px;
+  left: 6px;
+}
+#fp-nav.reverse ul li a span,
+#fp-nav.last ul li a span,
+.fp-slidesNav ul li a span {
+  height: 7px;
+  width: 7px;
+  background: transparent;
+  border: 1px solid var(--midnight-blue);
+}
+
+#fp-nav.last ul li:last-child a span {
+  border: 1px solid var(--white);
+}
+
+
+
+
+.light #fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  border: 1px solid var(--midnight-blue);
+}
+
+.dark #fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  border: 1px solid var(--white);
+}
+#fp-nav ul li a.active span,
+#fp-nav ul li:hover a.active span,
+.fp-slidesNav ul li a.active span,
+.fp-slidesNav ul li:hover a.active span {
+  height: 10px;
+  width: 10px;
+  background: var(--white);
+}
+
+#fp-nav.reverse ul li a.active span,
+#fp-nav ul li:hover a.active span,
+.fp-slidesNav ul li a.active span,
+.fp-slidesNav ul li:hover a.active span {
+  height: 10px;
+  width: 10px;
+  background: var(--midnight-blue);
+}
+
+#fp-nav ul li a.active span,
+#fp-nav ul li:hover a.active span,
+.fp-slidesNav ul li a.active span,
+.fp-slidesNav ul li:hover a.active span {
+  height: 10px;
+  width: 10px;
+  margin: -6px 0 0 -6px;
+  border-radius: 100%;
+}
+#fp-nav ul li:hover a span,
+.fp-slidesNav ul li:hover a span {
+  height: 10px;
+  width: 10px;
+  margin: -5px 0 0 -5px;
+}
+
+
+.fp-controlArrow.fp-prev {
+  left: 0;
+  border: none;
+  width: 50px;
+  height: 40px;
+  background: url(/images/icons/arrow.png) no-repeat;
+  transform: rotate(180deg);
+  cursor: pointer;
+  padding-left: var(--space-md);
+}
+.fp-controlArrow.fp-next {
+  padding-right: var(--space-md);
+  right: 0;
+  border: none;
+  width: 50px;
+  height: 101px;
+  background: url(/images/icons/arrow.png) no-repeat;
+  cursor: pointer;
+}
+
+/*******************************************************
+*
+*  Media Queries
+*
+********************************************************/
+
+/**
+ *  Small Viewport < 60em/960px
+*/
+@media screen and (--small-viewport) {
+  .fp-controlArrow.fp-prev, .fp-controlArrow.fp-next {
+    margin-top: 70px;
+
+  }
+}
+

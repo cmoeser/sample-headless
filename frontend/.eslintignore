@@ -1,0 +1,6 @@
+/src/static/*.js
+/src/test/**/*
+/dist/**/*
+node_modules/**/*
+functions/**/*
+src/plugins/**/*

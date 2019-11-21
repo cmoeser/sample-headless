@@ -1,0 +1,55 @@
+/**
+ *  Color System
+ *
+ *  @author Chip Moeser 
+ *
+ *  Thu Apr 4 18:11:26 EDT 2019
+ */
+
+:root {
+  /* Primary Pallete */
+  --lake-blue: rgb(0, 43, 73);
+  --midnight-blue: rgb(0, 38, 57);
+  --innovative-red: rgb(255, 68, 56);
+  --cool-slate: rgb(50, 62, 72);
+
+  /* Secondary Pallete */
+  --tech-silver: rgb(207, 210, 211);
+  --lets-go-green: rgb(0, 187, 180);
+  --winter-sky-blue: rgb(99, 207, 227);
+  --adventur-yellow: rgb(255, 214, 0);
+
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+}
+
+/**
+ *  Background colors
+ */
+.mblue {
+  background-color: var(--midnight-blue);
+}
+
+.lblue {
+  background-color: var(--lake-blue);
+}
+
+.cslate {
+  background-color: var(--cool-slate)
+}
+
+.tsilver {
+  background-color: var(--tech-silver);
+}
+
+.ired {
+  background-color: var(--innovative-red);
+}
+
+.bwhite {
+  background-color: var(--white);
+}
+
+.bblack {
+  background-color: var(--black);
+}

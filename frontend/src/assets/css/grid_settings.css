@@ -1,0 +1,10 @@
+/**
+ *  Grid Settinga
+ *
+ *  @author Chip Moeser 
+ *
+ *  Thu Apr 4 18:19:58 EDT 2019
+ */
+@custom-media --small-viewport (width <=60em);
+@custom-media --med-viewport(60.0625em <=width <=75.000em);
+@custom-media --large-viewport (width >=75.0625em);

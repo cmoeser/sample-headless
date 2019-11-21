@@ -1,0 +1,4 @@
+export const getterTypes = {
+  GET_MOBILE_MENU_OPEN: 'GET_MOBILE_MENU_OPEN',
+  GET_SLIDE_COLOR: 'GET_SLIDE_COLOR'
+}

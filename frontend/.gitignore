@@ -1,0 +1,12 @@
+# dependencies
+node_modules
+# logs
+npm-debug.log
+functions/node_modules
+# Nuxt generate
+# dist #
+dist
+# VSCode
+.vscode
+#firebase
+.firebase/*

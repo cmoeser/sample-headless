@@ -1,0 +1,57 @@
+/**
+ *  Spacing System
+ *
+ *  @author Chip Moeser 
+ *
+ *  @description - Base spacing is 1em or 16px. Every spacing value is a multiplication of that. 
+ *
+ *  Mon Mar 25 16:44:41 EDT 2019
+ */
+:root {
+  font-size: 16px;
+
+  --base-spacing: 1em;
+
+  --space-xxxs: calc(0.10 * var(--base-spacing));
+  --space-xxs: calc(0.25 * var(--base-spacing));
+  --space-xs: calc(0.5 * var(--base-spacing));
+  --space-sm: calc(0.75 * var(--base-spacing));
+  --space-md: calc(1.25 * var(--base-spacing));
+  --space-lg: calc(2 * var(--base-spacing));
+  --space-xl: calc(3.25 * var(--base-spacing));
+  --space-xxl: calc(5 * var(--base-spacing));
+  --space-xxxl: calc(8 * var(--base-spacing));
+}
+
+/*******************************************************
+*
+*  Media Queries
+*
+********************************************************/
+
+/**
+*  Small Viewport < 60em/960px
+*/
+@media screen and (--small-viewport) {
+  :root {
+    --base-spacing: .5em;
+  }
+}
+
+/**
+*  Medium Viewport  60em/961px - 75em/1200px
+*/
+@media screen and (width >= 60.0625em) and (width <= 75.000em) {
+  :root {
+    --base-spacing: 1em;
+  }
+}
+
+/**
+*  Large Viewport  > 75em/1201px
+*/
+@media screen and (--large-viewport) {
+  :root {
+    --base-spacing: 1.5em;
+  }
+}

@@ -1,0 +1,16 @@
+@import './grid_settings.css';
+
+:root {
+  --hero-md {
+    padding: var(--padding);
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  :root {
+    --hero-sm {
+      padding: var(--padding);
+    }
+  }
+}
