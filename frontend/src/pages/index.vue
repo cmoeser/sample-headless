@@ -64,7 +64,7 @@
         </section>
       </full-page>
     </no-ssr>
-    <AppVersion/>
+    <AppVersion />
   </div>
 </template>
 
@@ -138,6 +138,63 @@ export default class WKSSlide extends Mixins(BaseSlide) {
     }
 
     this.setSlideConfig(this.localOptions)
+    this.fetchSlides()
+  }
+
+  private fetchSlides() {
+    const func = async (nodeAlias: string) => {
+      const response: any = await graphqlClient.query({
+        query: gql`
+          fragment slideshowFragment on ParagraphSlideshow {
+            ... on ParagraphSlideshow {
+              fieldPanelHeader
+              fieldSlide {
+                entity {
+                  ...slideFragment
+                }
+              }
+            }
+          }
+          fragment slideFragment on ParagraphSlide {
+            ... on ParagraphSlide {
+              fieldSlideText
+              fieldSlideImage {
+                alt
+                sm: derivative(style: _600X500) {
+                  url
+                }
+                md: derivative(style: _960X500) {
+                  url
+                }
+                lg: derivative(style: _1200X600) {
+                  url
+                }
+                xlg: derivative(style: _1400X800) {
+                  url
+                }
+              }
+            }
+          }
+
+          query pageGqlView($field_alias_value: String!) {
+            pageGqlView(contextualFilter: { field_alias_value: $field_alias_value }) {
+              results {
+                ... on NodePage {
+                  fieldPanels {
+                    entity {
+                      ...slideshowFragment
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+        variables: { field_alias_value: nodeAlias }
+      })
+     console.log('Page RESP: ', response.data.pageGqlView.results[0])
+    }
+    func('/sample-page')
   }
 
   /**
