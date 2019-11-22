@@ -149,6 +149,7 @@ export default class SlidesModule extends VuexModule {
           pageGqlView(contextualFilter: { field_alias_value: $field_alias_value }) {
             results {
               ... on NodePage {
+                fieldH1
                 fieldPanels {
                   entity {
                     ...slideshowFragment
@@ -161,7 +162,7 @@ export default class SlidesModule extends VuexModule {
       `,
       variables: { field_alias_value: nodeAlias }
     })
-    // console.log('Page RESP: ', response.data.pageGqlView.results[0].fieldPanels[0].entity)
+    console.log('Page RESP: ', response.data.pageGqlView.results[0].fieldPanels[0])
     return {
       slides: response.data.pageGqlView.results[0].fieldPanels[0].entity
     }

@@ -1,26 +1,31 @@
 <template>
   <div class="home" v-if="this.slides">
-    <div v-if="this.slides"> 
-      <h1>{{ this.slides.fieldPanelHeader }}</h1>
+    <div class="h1">
+      <h1>{{ this.pageMeta.entityMetatags[3].value }}</h1>
+    </div>
+    <div class="home-header" v-if="this.slides">
+      <h2>{{ this.slides.fieldPanelHeader }}</h2>
     </div>
     <no-ssr>
       <full-page :options="fpOptions" v-if="this.slides.fieldSlide">
-        <section role="region" class="section" data-tone="dark">
+        <section role="region" class="section">
           <div class="slide" v-for="(slide, index) in this.slides.fieldSlide" :key="index">
-            <div class="slide-content"> 
-              <h2>{{ slide.entity.fieldSlideText }}</h2>
-              <p>{{ slide.entity.fieldSlideBody }}</p>
+            <div class="slide-content">
+              <picture>
+                <source :srcset="slide.entity.fieldSlideImage.sm.url" media="(max-width: 599px)" />
+                <source :srcset="slide.entity.fieldSlideImage.md.url" media="(min-width: 959px)" />
+                <source :srcset="slide.entity.fieldSlideImage.lg.url" media="(min-width: 1201px)" />
+                <source :srcset="slide.entity.fieldSlideImage.xlg.url" media="(min-width: 1601px)" />
+                <img
+                  :src="slide.entity.fieldSlideImage.md.url"
+                  :alt="slide.entity.fieldSlideImage.alt"
+                />
+              </picture>
+              <div class="slide-content__text">
+                <h3>{{ slide.entity.fieldSlideText }}</h3>
+                <p>{{ slide.entity.fieldSlideBody }}</p>
+              </div>
             </div>
-            <picture>
-              <source :srcset="slide.entity.fieldSlideImage.sm.url" media="(max-width: 599px)" />
-              <source :srcset="slide.entity.fieldSlideImage.md.url" media="(min-width: 959px)" />
-              <source :srcset="slide.entity.fieldSlideImage.lg.url" media="(min-width: 1201px)" />
-              <source :srcset="slide.entity.fieldSlideImage.xlg.url" media="(min-width: 1601px)" />
-              <img
-                :src="slide.entity.fieldSlideImage.md.url"
-                :alt="slide.entity.fieldSlideImage.alt"
-              />
-            </picture>
           </div>
         </section>
       </full-page>
@@ -120,10 +125,7 @@ export default class WKSSlide extends Mixins(BaseSlide) {
       fitToSection: false,
       fitToSectionDelay: 0
     }
-
-    
   }
-
 
   /**
    * @name setTotalSlides
@@ -186,11 +188,10 @@ export default class WKSSlide extends Mixins(BaseSlide) {
 @import '../assets/css/modules/slides.css';
 @import '../assets/css/modules/fullscreen-overrides.css';
 
-.slide-content {
-  position: relative;
-  z-index: 4;
+.home-header {
+  padding: var(--space-xs) var(--space-md);
+  color: var(--black);
 }
-
 /*****************************************************
 *
 *  Media Queries

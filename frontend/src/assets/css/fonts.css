@@ -9,9 +9,9 @@
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
 
 :root {
-  --font-primary: 'brandon-grotesque', sans-serif;
-  --font-secondary: 'essonnes-text', serif;
-  --font-headings: 'rift', sans-serif;
+  --font-primary: 'lora', serif;
+  --font-secondary: 'lora', serif;
+  --font-headings: 'Muli', sans-serif;
 
   /* set base values */
   --text-base-size: 1em;
@@ -20,7 +20,7 @@
   /* type scale */
   --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
   --text-sm: calc(1em / var(--text-scale-ratio));
-  --text-md: calc(1em * var(--text-scale-ratio));
+  --text-md: var(--text-base-size);
   --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
   --text-xl: calc(
     1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
@@ -65,7 +65,7 @@
   }
   --heading-md {
     line-height: var(--heading-line-height);
-    font-size: var(--text-lg);
+    font-size: calc(var(--text-md)*2);
   }
   --heading-sm {
     line-height: var(--heading-line-height);
@@ -93,12 +93,15 @@ h1 {
   font-weight: 100;
 }
 h2 {
-  @apply --heading-lg;
+  @apply --heading-md;
   font-weight: bold;
+  letter-spacing:  2px;
   margin: 0 0 var(--space-sm);
 }
 h3 {
-  @apply --heading-sm;
+  @apply --heading-lg;
+  font-weight: bold;
+  letter-spacing:  2px;
 }
 
 /**

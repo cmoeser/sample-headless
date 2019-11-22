@@ -81,7 +81,7 @@ module.exports = {
         content: 'Sample'
       }
     ],
-    // link: [{ rel: 'stylesheet', href: 'https://use.typekit.net/mug6sdz.css' }],
+    link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lora|Muli&display=swap' }],
 
     script: [
       {

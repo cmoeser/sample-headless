@@ -9,9 +9,13 @@
 :root {
   /* Primary Pallete */
   --iin-red: rgb(229, 27, 36);
+  --iin-red-transparent: rgba(229, 27, 36, .5);
 
   --white: rgb(255, 255, 255);
+  --white-transparent: rgb(255, 255, 255, .5);
   --black: rgb(0, 0, 0);
+
+  --purple: rgb(105, 46, 101);
 }
 
 /**

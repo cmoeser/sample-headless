@@ -4,9 +4,9 @@ import { Store } from 'vuex'
 import { match } from 'minimatch'
 import { any } from 'async'
 
-declare module "*.vue" {
-  import Vue from "vue";
-  export default Vue;
+declare module '*.vue' {
+  import Vue from 'vue'
+  export default Vue
 }
 
 declare global {
@@ -63,14 +63,8 @@ export interface component {
 }
 declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
-      AppSocial?: object
-      ClientLogo?: object
-      AppFooter?: object
-      LetsGo?: object
-      PortfolioThumb?: object
-      caseStudy?: object
-      $el?: HTMLElement
-      $store?: Store<any>
+    $el?: HTMLElement
+    $store?: Store<any>
   }
 }
 
@@ -99,8 +93,8 @@ export interface AppState {
 }
 
 export interface Recaptcha {
-  getResponse: ()=>{}
-  reset: ()=>{}
+  getResponse: () => {}
+  reset: () => {}
 }
 
 export interface ClientLogo {
@@ -234,12 +228,12 @@ export interface KeyValue {
 export interface EntityMetaTags {
   entityMetatags: Array<KeyValue>
 }
-export interface Results{
+export interface Results {
   results: EntityMetaTags
 }
 
 export interface MetaResponseObject {
-  pageGqlView: Results 
+  pageGqlView: Results
 }
 export interface APIResponse {
   data: { token: string }
