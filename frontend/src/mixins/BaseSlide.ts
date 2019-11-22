@@ -4,7 +4,7 @@ import { mutationTypes } from '../store/mutation-types'
 import { State, Mutation } from 'vuex-class'
 import { StateBindingHelper } from 'vuex-class/lib/bindings'
 
-// Typings
+// Custom Typings
 import { FPOptions, AppColors } from '../typings/vue'
 
 /**
@@ -65,7 +65,7 @@ import { FPOptions, AppColors } from '../typings/vue'
       ]
     }
   },
-  // middleware: 'meta'
+  middleware: 'meta'
 })
 export default class BaseSlide extends Vue {
   /* pageMeta
@@ -117,16 +117,6 @@ export default class BaseSlide extends Vue {
   @State('appColors', { namespace: 'appState' })
   appColors: AppColors
 
-  /*
-   * SET_SLIDE_COLOR
-   * @descrition - Sets the slide color to dark or light. Class used for text over slide.
-   * @decorator - @Mutation
-   * @name - setslideTone
-   * @type - Mutation<T>
-   * @arguments - namespace - slidesState
-  */
-  @Mutation(mutationTypes.SET_SLIDE_TONE, { namespace: 'slidesState' })
-  setSlideTone: (slideTone: string) => void
 
   /* SET_SLIDE_COLOR
    * @descrition - Sets the open/closed state of the mobile menu

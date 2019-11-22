@@ -1,12 +1,15 @@
 import { mutationTypes } from '../mutation-types'
 import { getterTypes } from '../getter-types'
 import { actionTypes } from '../action-types'
-import { Module, Mutation, VuexModule, Action, MutationAction } from 'vuex-module-decorators'
+import { Module, Mutation, VuexModule, MutationAction } from 'vuex-module-decorators'
 import { FPOptions } from '~/src/typings/vue'
+
+import apiJson from '../../../api.json'
 
 // GraphQL
 import gql from 'graphql-tag'
 import graphqlClient from '../../apollo/clients/default'
+
 /**
  *  @name - SlidesState
  *
@@ -24,14 +27,6 @@ import graphqlClient from '../../apollo/clients/default'
 })
 export default class SlidesModule extends VuexModule {
   public slides: object = {}
-  /**
-   * slideTone
-   *
-   * @description - Light/Dark tone of a slide. Used for hamburger over color
-   *
-   * @type - string
-   */
-  private slideTone: string = 'dark'
 
   /**
    * slideColor
@@ -50,7 +45,7 @@ export default class SlidesModule extends VuexModule {
    * @type - string
    */
   private fpOptions: FPOptions = {
-    licenseKey: 'DCBF49F5-499D4B92-8110FB9D-23AD4D8F',
+    licenseKey: apiJson.key,
 
     // Accessibility
     keyboardScrolling: true,
@@ -77,25 +72,12 @@ export default class SlidesModule extends VuexModule {
    *
    * @description - Gets the slide tone light/dark
    *
-   * @param slideTone
-   *
    * @returns - this.slideColor: string
    */
   get [getterTypes.GET_SLIDE_COLOR](): string {
     return this.slideColor
   }
 
-  /**
-   * @name - SET_SLIDE_TONE
-   *
-   * @description - Sets the slide tone light/dark
-   *
-   * @param slideTone: string
-   */
-  @Mutation
-  [mutationTypes.SET_SLIDE_TONE](slideTone: string): void {
-    this.slideTone = slideTone
-  }
   /**
    * @name - SET_SLIDE_COLOR
    *

@@ -201,16 +201,7 @@ export interface SlidesState {
 }
 
 export interface AppColors {
-  lakeBlue?: string
-  midnightBlue?: string
-  innovativeRed?: string
-  coolSlate?: string
-  techSilver?: string
-  letsGoGreen?: string
-  winterSkyBlue?: string
-  adventurYellow?: string
-  white?: string
-  black?: string
+  innRed?: string
 }
 
 export interface MetaObject {

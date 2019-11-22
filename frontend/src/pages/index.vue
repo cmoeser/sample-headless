@@ -109,7 +109,7 @@ export default class WKSSlide extends Mixins(BaseSlide) {
    */
   private created() {
     this.localOptions = {
-      sectionsColor: [this.appColors.midnightBlue, this.appColors.white, this.appColors.midnightBlue],
+      sectionsColor: [],
 
       onSlideLeave: this.onSlideLeave,
       afterRender: this.setTotalSlides,
@@ -123,6 +123,7 @@ export default class WKSSlide extends Mixins(BaseSlide) {
     this.setSlideConfig(this.localOptions)
     this.getSlides('/sample-page')
   }
+
 
   /**
    * @name setTotalSlides

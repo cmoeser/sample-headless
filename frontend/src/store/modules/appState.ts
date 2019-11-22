@@ -13,7 +13,7 @@ import { EntityMetaTags } from '../../typings/vue'
  *
  *  @author - Chip Moeser 
  *
- *  ###### Wed Nov 20 19:56:55 EST 2019
+ *  Wed Nov 20 19:56:55 EST 2019
  */
 
 @Module({
@@ -30,19 +30,11 @@ export default class AppModule extends VuexModule {
    * @type - AppColors - ~/src/typings/vue
    */
   private appColors: AppColors = {
-    lakeBlue: '#002b49',
-    midnightBlue: '#002639',
-    innovativeRed: '#ff4438',
-    coolSlate: '#323e48',
-    techSilver: '#cfd2d3',
-    letsGoGreen: '#00bbb4',
-    winterSkyBlue: '#63cfe3',
-    adventurYellow: '#ffd600',
-    white: '#ffffff',
-    black: '#000000'
+    innRed: '#002b49'
   }
   /**
    * menuMobileIsOpened
+   * 
    *
    * @description - The state of the mobile menu true/false
    *
@@ -78,7 +70,7 @@ export default class AppModule extends VuexModule {
       { key: 'canonical', value: '', __typename: 'MetaValue' },
       { key: 'title', value: '', __typename: 'MetaValue' }
     ]
-  };
+  }
 
   /**
    * SET_MENU_MOBILE_OPEN

@@ -1,10 +1,8 @@
 <template>
   <div>
     <section
-      v-scroll="handleScroll"
       role="region"
       class="panel hero error bwhite"
-      data-tone="light"
     >
       <div class="panel_content centered panel_column error">
         <div class="error_image">
@@ -71,13 +69,12 @@ export default class WKSSlide extends Mixins(BaseSlide) {
    *
    */
   private mounted(): void {
-    this.setSlideTone('light')
     this.statusCode()
   }
   /**
-   * @name - mounted
+   * @name - statusCode
    *
-   * @descrition - Mounted lifecycle hook
+   * @descrition - 
    *
    * @type - Array<string | undefined>
    *
@@ -86,9 +83,9 @@ export default class WKSSlide extends Mixins(BaseSlide) {
     return (this.$props.error && this.$props.error.statusCode) || 500
   }
   /**
-   * @name - mounted
+   * @name - message
    *
-   * @descrition - Mounted lifecycle hook
+   * @descrition - 
    *
    * @type - Array<string | undefined>
    *

@@ -19,7 +19,7 @@ const fragmentMatcher: IntrospectionFragmentMatcher = new IntrospectionFragmentM
         {
           kind: 'INTERFACE',
           name: 'entity',
-          possibleTypes: [{ name: 'ParagraphClientLogosPanel' }, { name: 'ParagraphSimplePanel' }]
+          possibleTypes: [{ name: 'ParagraphSlideshow' }, { name: 'ParagraphSimplePanel' }]
         }
       ]
     }

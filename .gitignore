@@ -11,3 +11,5 @@ frontend/.vscode
 #firebase
 frontend/.firebase/*
 backend/*
+#api
+frontend/api.json
