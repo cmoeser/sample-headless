@@ -9,7 +9,7 @@ import { ApolloQueryResult } from 'apollo-client'
  *
  *  @author Chip Moeser 
  *
- *  Fri Aug 2 13:10:49 EDT 2019
+ *  Fri Nov 22 13:21:46 EST 2019
  */
 export default ({ store }) => {
   const func = async (nodeAlias: string) => {
@@ -29,8 +29,9 @@ export default ({ store }) => {
       variables: { field_alias_value: nodeAlias }
     })
     store.commit('appState/SET_PAGE_META', response.data.pageGqlView.results[0], { module: 'appState' })
+    
     // console.log('META: ', response.data.pageGqlView.results[0])
   }
   // return func(route.path)
-  return func('/sample-page')
+  return func('/sample-page') // only 1 route so doesn't need to be dynamic
 }

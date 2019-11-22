@@ -83,6 +83,6 @@ module.exports = {
     'quote-props': ['warn', 'consistent-as-needed'],
     radix: 'warn',
     'use-isnan': 'warn',
-    'valid-typeof': 'off',
+    'valid-typeof': 'off'
   }
 }

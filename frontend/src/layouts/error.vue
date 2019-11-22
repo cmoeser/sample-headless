@@ -2,7 +2,7 @@
   <div>
     <section
       role="region"
-      class="panel hero error bwhite"
+      class="panel hero error"
     >
       <div class="panel_content centered panel_column error">
         <div class="error_image">
@@ -20,7 +20,7 @@
  *
  *  @author Chip Moeser 
  *
- *  Fri Jun 7 10:06:19 EDT 2019
+ *  Fri Nov 22 13:18:37 EST 2019
  */
 import { Vue, Component } from 'vue-property-decorator'
 import { Mixins } from 'vue-mixin-decorator'
@@ -45,7 +45,7 @@ import error from '../typings/vue'
       link: [
         {
           rel: 'canonical',
-          href: 'https://'
+          href: 'https://sample-site.com'
         }
       ]
     }

@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
-    <div v-if="this.slides">
+  <div class="home" v-if="this.slides">
+    <div v-if="this.slides"> 
       <h1>{{ this.slides.fieldPanelHeader }}</h1>
     </div>
     <no-ssr>
-      <full-page :options="fpOptions">
-        <section role="region" class="section" data-tone="dark" v-if="this.slides">
+      <full-page :options="fpOptions" v-if="this.slides.fieldSlide">
+        <section role="region" class="section" data-tone="dark">
           <div class="slide" v-for="(slide, index) in this.slides.fieldSlide" :key="index">
             <div class="slide-content"> 
               <h2>{{ slide.entity.fieldSlideText }}</h2>
@@ -62,17 +62,6 @@ import { constants } from 'os'
 @Component({ components: { AppVersion } })
 export default class WKSSlide extends Mixins(BaseSlide) {
   /*
-  * GET_SLIDES
-  * @descrition - 
-  * @decorator - @Action
-  * @name - actionTypes.GET_SLIDES
-  * @type - Action<T>
-  * @arguments - namespace - 
-  * */
-  @Action(actionTypes.GET_SLIDES, { namespace: 'slidesState' })
-  getSlides: (nodeAlias: string) => {}
-
-  /*
   * slides
   * @descrition - The slides object from Drupal 
   * @decorator - @State
@@ -103,6 +92,18 @@ export default class WKSSlide extends Mixins(BaseSlide) {
   private totalSlides: number = 1
 
   /**
+   * @name - beforeCreate
+   *
+   * @descrition - Before creating this component, fetch the slides via the store
+   *
+   * @param - Alias
+   *
+   */
+  private beforeCreate(): void {
+    this.$store.dispatch('slidesState/GET_SLIDES', '/sample-page')
+  }
+
+  /**
    * @name - Created
    *
    * @description - Created lifecycle hook. Upon creation of this component we set the sldie options overrride and get client logos
@@ -120,8 +121,7 @@ export default class WKSSlide extends Mixins(BaseSlide) {
       fitToSectionDelay: 0
     }
 
-    this.setSlideConfig(this.localOptions)
-    this.getSlides('/sample-page')
+    
   }
 
 
