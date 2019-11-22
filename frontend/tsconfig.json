@@ -67,6 +67,7 @@
     "src/**/*"
   ],
   "exclude": [
-    "src/typings"
+    "src/typings",
+    "nuxt.config"
   ]
 }
