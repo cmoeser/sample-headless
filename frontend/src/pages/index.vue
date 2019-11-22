@@ -1,26 +1,24 @@
 <template>
   <div class="home">
     <no-ssr>
-      <full-page :options="fpOptions">
+      <full-page :options="fpOptions"  v-if="this.slides">
         <section role="region" class="section" data-tone="dark">
-          <div v-if="this.slides">
-            <div v-for="(slide, index) in this.slides.fieldSlide" :key="index">
-              <div class="slide">
-          
+              <div class="slide" v-for="(slide, index) in this.slides.fieldSlide" :key="index">
                 <picture>
-              <source :srcset="slide.entity.fieldSlideImage.sm.url" media="(max-width: 599px)" />
-              <source :srcset="slide.entity.fieldSlideImage.md.url" media="(min-width: 959px)" />
-              <source :srcset="slide.entity.fieldSlideImage.lg.url" media="(min-width: 1201px)" />
-              <source :srcset="slide.entity.fieldSlideImage.xlg.url" media="(min-width: 1401px)" />
-              <img :src="slide.entity.fieldSlideImage.md.url" alt="team slide 1" />
-            </picture>
-              </div>
-            </div>
+                  <source :srcset="slide.entity.fieldSlideImage.sm.url" media="(max-width: 599px)" />
+                  <source :srcset="slide.entity.fieldSlideImage.md.url" media="(min-width: 959px)" />
+                  <source :srcset="slide.entity.fieldSlideImage.lg.url" media="(min-width: 1201px)" />
+                  <source
+                    :srcset="slide.entity.fieldSlideImage.xlg.url"
+                    media="(min-width: 1601px)"
+                  />
+                  <img :src="slide.entity.fieldSlideImage.md.url" :alt="slide.entity.fieldSlideImage.alt" />
+                </picture>
           </div>
         </section>
       </full-page>
     </no-ssr>
-    <AppVersion />
+    <AppVersion/>
   </div>
 </template>
 
