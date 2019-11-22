@@ -111,7 +111,8 @@ h3 {
   :root {
     --text-scale-ratio: 1.4;
   }
-  h2 {
+  h3 {
+    margin: var(--space-md) 0;
   }
 }
 /**

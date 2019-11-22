@@ -59,7 +59,7 @@ import error from '../typings/vue'
   components: {
   }
 })
-export default class WKSSlide extends Mixins(BaseSlide) {
+export default class SMPLSlide extends Mixins(BaseSlide) {
   /**
    * @name - mounted
    *

@@ -83,12 +83,6 @@ module.exports = {
     ],
     link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lora|Muli&display=swap' }],
 
-    script: [
-      {
-        src:
-          'https://polyfill.io/v3/polyfill.min.js?features=Symbol%2CPromise%2CSymbol.toStringTag'
-      }
-    ]
   },
 
   manifest: {
@@ -131,7 +125,7 @@ module.exports = {
     gzip: true,
     generate: false, // Enable me when using nuxt generate
     routes: [
-      '/',
+      '/sample-page',
     ],
     exclude: []
   },

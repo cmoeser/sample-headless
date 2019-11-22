@@ -89,15 +89,8 @@ h1.slide-title {
 *  Small Viewport < 60em/960px
 */
 @media screen and (--small-viewport) {
-  .slide-content h1 {
-    margin-bottom: var(--space-lg);
-  }
-  .slide-title {
-    font-size: var(--text-lg);
-  }
-  .slide-tagline {
-    margin: var(--space-lg) auto;
-    width: 100%;
+  .slide-content__text p {
+    font-size: var(--text-md);
   }
 }
 
@@ -105,17 +98,12 @@ h1.slide-title {
 *  Medium Viewport  60em/960px - 75em/1200px
 */
 @media screen and (width >= 60.0625em) and (width <= 75.000em) {
-  .slide-tagline {
-    margin: 0 auto;
-  }
+
 }
 
 /**
 *  Large Viewport  > 75em/1201px
 */
 @media screen and (--large-viewport) {
-  .slide-tagline {
-    width: 80%;
-    margin: 0 auto;
-  }
+
 }

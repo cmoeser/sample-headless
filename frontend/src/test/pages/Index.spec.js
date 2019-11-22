@@ -1,4 +1,4 @@
-import WKSSlide from '../../pages/Index.vue'
+import SMPLSlide from '../../pages/Index.vue'
 import { shallowMount, RouterLinkStub, createLocalVue } from '@vue/test-utils'
 
 import store from '../../store/index'
@@ -10,7 +10,7 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-describe('WKSSlide', () => {
+describe('SMPLSlide', () => {
   let store
 
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe('WKSSlide', () => {
   })
 
   it('is a Vue component', () => {
-    const wrapper = shallowMount(WKSSlide, { store, localVue })
+    const wrapper = shallowMount(SMPLSlide, { store, localVue })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })

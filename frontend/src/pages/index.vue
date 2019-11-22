@@ -65,7 +65,7 @@ import { constants } from 'os'
  */
 
 @Component({ components: { AppVersion } })
-export default class WKSSlide extends Mixins(BaseSlide) {
+export default class SMPLSlide extends Mixins(BaseSlide) {
   /*
   * slides
   * @descrition - The slides object from Drupal 
