@@ -120,9 +120,15 @@ export default class SlidesModule extends VuexModule {
     Object.assign(this.fpOptions, slideOptions)
   }
 
-  @MutationAction({ mutate: [ 'slides' ] })
-  async [actionTypes.GET_SLIDES]({ commit }, nodeAlias: string) {
-    console.log('CALLED')
+  /**
+   * GET_SLIDES
+   *
+   * @description -
+   *
+   * @param - mutate
+   */
+  @MutationAction({ mutate: ['slides'] })
+  async [actionTypes.GET_SLIDES](nodeAlias: string) {
     const response: any = await graphqlClient.query({
       query: gql`
         fragment slideshowFragment on ParagraphSlideshow {
@@ -138,18 +144,19 @@ export default class SlidesModule extends VuexModule {
         fragment slideFragment on ParagraphSlide {
           ... on ParagraphSlide {
             fieldSlideText
+            fieldSlideBody
             fieldSlideImage {
               alt
-              sm: derivative(style: _600X500) {
+              sm: derivative(style: MOBILE) {
                 url
               }
-              md: derivative(style: _960X500) {
+              md: derivative(style: TABLET) {
                 url
               }
-              lg: derivative(style: _1200X600) {
+              lg: derivative(style: DESKTOP) {
                 url
               }
-              xlg: derivative(style: _1400X800) {
+              xlg: derivative(style: EXTRALARGE) {
                 url
               }
             }
@@ -170,12 +177,11 @@ export default class SlidesModule extends VuexModule {
           }
         }
       `,
-      variables: { field_alias_value: '/sample-page' }
+      variables: { field_alias_value: nodeAlias }
     })
     console.log('Page RESP: ', response.data.pageGqlView.results[0].fieldPanels[0].entity)
     return {
       slides: response.data.pageGqlView.results[0].fieldPanels[0].entity
     }
-    
   }
 }

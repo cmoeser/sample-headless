@@ -1,24 +1,31 @@
 <template>
   <div class="home">
+    <div v-if="this.slides">
+      <h1>{{ this.slides.fieldPanelHeader }}</h1>
+    </div>
     <no-ssr>
-      <full-page :options="fpOptions"  v-if="this.slides">
-        <section role="region" class="section" data-tone="dark">
-              <div class="slide" v-for="(slide, index) in this.slides.fieldSlide" :key="index">
-                <picture>
-                  <source :srcset="slide.entity.fieldSlideImage.sm.url" media="(max-width: 599px)" />
-                  <source :srcset="slide.entity.fieldSlideImage.md.url" media="(min-width: 959px)" />
-                  <source :srcset="slide.entity.fieldSlideImage.lg.url" media="(min-width: 1201px)" />
-                  <source
-                    :srcset="slide.entity.fieldSlideImage.xlg.url"
-                    media="(min-width: 1601px)"
-                  />
-                  <img :src="slide.entity.fieldSlideImage.md.url" :alt="slide.entity.fieldSlideImage.alt" />
-                </picture>
+      <full-page :options="fpOptions">
+        <section role="region" class="section" data-tone="dark" v-if="this.slides">
+          <div class="slide" v-for="(slide, index) in this.slides.fieldSlide" :key="index">
+            <div class="slide-content"> 
+              <h2>{{ slide.entity.fieldSlideText }}</h2>
+              <p>{{ slide.entity.fieldSlideBody }}</p>
+            </div>
+            <picture>
+              <source :srcset="slide.entity.fieldSlideImage.sm.url" media="(max-width: 599px)" />
+              <source :srcset="slide.entity.fieldSlideImage.md.url" media="(min-width: 959px)" />
+              <source :srcset="slide.entity.fieldSlideImage.lg.url" media="(min-width: 1201px)" />
+              <source :srcset="slide.entity.fieldSlideImage.xlg.url" media="(min-width: 1601px)" />
+              <img
+                :src="slide.entity.fieldSlideImage.md.url"
+                :alt="slide.entity.fieldSlideImage.alt"
+              />
+            </picture>
           </div>
         </section>
       </full-page>
     </no-ssr>
-    <AppVersion/>
+    <AppVersion />
   </div>
 </template>
 
@@ -177,6 +184,11 @@ export default class WKSSlide extends Mixins(BaseSlide) {
 @import '../assets/css/modules/section.css';
 @import '../assets/css/modules/slides.css';
 @import '../assets/css/modules/fullscreen-overrides.css';
+
+.slide-content {
+  position: relative;
+  z-index: 4;
+}
 
 /*****************************************************
 *
