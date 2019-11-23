@@ -18,6 +18,7 @@ export default ({ store }) => {
         query pageGqlView($field_alias_value: String!) {
           pageGqlView(contextualFilter: { field_alias_value: $field_alias_value }) {
             results {
+              fieldH1
               entityMetatags {
                 key
                 value
