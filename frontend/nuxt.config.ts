@@ -125,7 +125,7 @@ module.exports = {
     gzip: true,
     generate: false, // Enable me when using nuxt generate
     routes: [
-      '/sample-page',
+      '/',
     ],
     exclude: []
   },

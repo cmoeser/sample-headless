@@ -105,7 +105,7 @@ export default class SMPLSlide extends Mixins(BaseSlide) {
    *
    */
   private beforeCreate(): void {
-    this.$store.dispatch('slidesState/GET_SLIDES', '/sample-page')
+    this.$store.dispatch('slidesState/GET_SLIDES', '/')
   }
 
   /**

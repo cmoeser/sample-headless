@@ -13,3 +13,6 @@ frontend/.firebase/*
 backend/*
 #api
 frontend/api.json
+
+frontend/src/vue-apollo/*
+frontend/src/plugins/vue-fullpage.js

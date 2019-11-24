@@ -33,5 +33,5 @@ export default ({ store }) => {
     // console.log('META: ', response.data.pageGqlView.results[0])
   }
   // return func(route.path)
-  return func('/sample-page') // only 1 route so doesn't need to be dynamic
+  return func('/') // only 1 route so doesn't need to be dynamic
 }
