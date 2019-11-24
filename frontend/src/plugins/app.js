@@ -10,7 +10,7 @@ import { mutationTypes } from '../store/mutation-types'
  *  Sat Nov 23 06:23:42 EST 2019
  */
 export default context => {
-  // we want menu mobile to close when changing page.
+  // We want menu mobile to close when changing page.
   if (process.client) {
     window.onNuxtReady(app => {
       app.$nuxt.$on('routeChanged', (to, from) => {

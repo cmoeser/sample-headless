@@ -3,7 +3,7 @@
  *  Configuration paramaters for Nuxt build
  *  @author Chip Moeser 
  *
- *  Sat Mar 9 15:34:10 EST 2019
+ *  Sun Nov 24 14:23:12 EST 2019
  */
 
 const path = require('path')
@@ -84,7 +84,6 @@ module.exports = {
     link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lora|Muli&display=swap' }],
 
   },
-
   manifest: {
     name: 'Sample',
     short_name: 'Sample',
