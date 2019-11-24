@@ -1,6 +1,6 @@
 Sample Headles/Decoupled Drupal with VueJS
 
-Overview
+Overview: 
 A SEO friendly page with a slideshow component. Built with a Vue front end and headless Drupal instance for content management.
 
 Technologies used
