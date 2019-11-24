@@ -119,7 +119,7 @@ module.exports = {
   },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://dev-sample-headless-backend.pantheonsite.io',
+    hostname: 'https://live-sample-headless-backend.pantheonsite.io/',
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
@@ -132,7 +132,7 @@ module.exports = {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://dev-sample-headless-backend.pantheonsite.io/graphql/'
+        httpEndpoint: 'https://live-sample-headless-backend.pantheonsite.io/graphql/'
       }
     }
   },

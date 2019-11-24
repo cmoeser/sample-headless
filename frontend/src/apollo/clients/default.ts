@@ -43,7 +43,7 @@ export default new ApolloClient({
   }),
   // Provide the URL to the API server.
   link: createHttpLink({
-    uri: 'https://dev-sample-headless-backend.pantheonsite.io/graphql/',
+    uri: 'https://live-sample-headless-backend.pantheonsite.io/graphql/',
     fetch
   })
 })

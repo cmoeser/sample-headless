@@ -1,4 +1,4 @@
-Sitemap: https://dev-sample-headless-backend.pantheonsite.io/sitemap.xml
+Sitemap: https://live-sample-headless-backend.pantheonsite.io/sitemap.xml
 User-agent: * 
 
 # Misc

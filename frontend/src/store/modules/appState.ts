@@ -49,7 +49,7 @@ export default class AppModule extends VuexModule {
    * @type - string
    *
    */
-  private baseURL: string = 'https://dev-sample-headless-backend.pantheonsite.io'
+  private baseURL: string = 'https://live-sample-headless-backend.pantheonsite.io/'
 
   /**
    * pageMeta
