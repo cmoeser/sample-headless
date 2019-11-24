@@ -1,6 +1,13 @@
 import { mutationTypes } from '../store/mutation-types'
+
 /**
- * A custom plugin for logic that not belongs to any specific component
+ *  @name - App
+ *
+ *  @desc - On route change let our app state know so we can close the mobile menu between route changes
+ *
+ *  @author - Chip Moeser 
+ *
+ *  Sat Nov 23 06:23:42 EST 2019
  */
 export default context => {
   // we want menu mobile to close when changing page.

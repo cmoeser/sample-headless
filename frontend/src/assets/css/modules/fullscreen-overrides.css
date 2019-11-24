@@ -1,4 +1,7 @@
-.slide {
+
+/* FullpageJS overrrides */
+
+.dark {
   padding: 0;
 }
 .fp-slides {
