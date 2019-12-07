@@ -4,7 +4,7 @@
       <h1>{{ this.pageMeta.entityMetatags[3].value }}</h1>
     </div>
     <div class="home-header" v-if="this.slides">
-      <h2>{{ this.slides.fieldPanelHeader }}</h2>
+      <h2>{{ this.slides.fieldPanelHeader }} sds</h2>
     </div>
     <no-ssr>
       <full-page :options="fpOptions" v-if="this.slides.fieldSlide">
