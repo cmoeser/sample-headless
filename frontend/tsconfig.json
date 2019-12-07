@@ -25,7 +25,7 @@
     "noEmit": true,
     "types": [
       "@types/node",
-      "@nuxt/vue-app"
+      "@nuxt/types"
     ],
     "paths": {
       "~/*": [
@@ -68,6 +68,7 @@
   ],
   "exclude": [
     "src/typings",
-    "nuxt.config"
+    "nuxt.config",
+    "node_modules"
   ]
 }

@@ -55,6 +55,9 @@ declare module 'vue/types' {
     apollo: object
   }
 }
+export interface Process {
+  client?: any
+}
 export interface VueClass {
   Component: object
 }

@@ -26,6 +26,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.5.4",
     "@nuxt/babel-preset-app": "^2.8.1",
+    "@nuxt/types": "^0.5.3",
     "@nuxt/vue-app": "^2.10.2",
     "@nuxtjs/apollo": "^4.0.0-rc8.1",
     "@nuxtjs/pwa": "^3.0.0-beta.19",
@@ -35,6 +36,7 @@
     "@vue/cli-shared-utils": "^3.1.1",
     "apollo-client": "^2.4.5",
     "apollo-link-http": "^1.5.5",
+    "async": "^3.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "browserlist": "^1.0.1",

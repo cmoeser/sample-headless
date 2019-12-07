@@ -53,7 +53,8 @@ import AppVersion from '../components/AppVersion.vue'
 // GraphQL
 import graphqlClient from '../apollo/clients/default'
 import gql from 'graphql-tag'
-import { constants } from 'os'
+
+import { Process } from '../typings/vue'
 
 /**
  *  sample Front End
