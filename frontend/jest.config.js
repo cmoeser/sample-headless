@@ -11,18 +11,14 @@ module.exports = {
     '.*\\.(vue)$': 'vue-jest'
   },
   // https://jestjs.io/docs/en/configuration#modulefileextensions-array-string
-  moduleFileExtensions: ['ts', 'js', 'vue', 'json'],
-
+  moduleFileExtensions: ['js', 'json', 'vue', 'ts'],
   // https://github.com/facebook/jest/issues/1211#issuecomment-247381553
   // https://jestjs.io/docs/en/configuration.html#coveragepathignorepatterns-array-string
-  collectCoverageFrom: [
-    'components/**/*.vue',
-    'layouts/**/*.vue',
-    'pages/**/*.vue',
-    'lib/**/*.ts',
-    'plugins/**/*.ts',
-    'store/**/*.ts',
-  ],
+  collectCoverageFrom: ['components/**/*.vue', 'layouts/**/*.vue', 'pages/**/*.vue', 'lib/**/*.ts', 'plugins/**/*.ts', 'store/**/*.ts'],
   preset: 'ts-jest/presets/js-with-ts',
-  transformIgnorePatterns: ['node_modules/(?!(bootstrap-vue)/)']
-};
+  transformIgnorePatterns: ['node_modules/(?!(bootstrap-vue)/)'],
+  snapshotSerializers: [
+    "<rootDir>/node_modules/jest-serializer-vue"
+  ],
+  testRegex: "/src/test/.*\\.(ts|tsx|js)$",
+}
