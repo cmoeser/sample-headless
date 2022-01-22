@@ -60,7 +60,7 @@
     "minimatch": "^3.0.4",
     "mkdirp": "^0.5.1",
     "multi": "^0.1.3",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.1.1",
     "npm": "^6.13.0",
     "nuxt": "^2.10.2",
     "nuxt-fullpage.js": "0.0.3",
