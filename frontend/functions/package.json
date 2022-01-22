@@ -33,7 +33,7 @@
     "graphql-tag": "^2.10.0",
     "htmlspecialchars": "^1.0.5",
     "isomorphic-fetch": "^2.2.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.1.1",
     "nuxt": "^2.8.1",
     "nuxt-property-decorator": "^2.5.0",
     "postcss-import": "^12.0.1",
