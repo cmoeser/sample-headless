@@ -115,7 +115,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^4.0.0",
     "jest": "^24.9.0",
-    "jsdom": "^12.2.0",
+    "jsdom": "^16.5.0",
     "jsdom-global": "^3.0.2",
     "nodemon": "^1.19.1",
     "postcss": "^8.2.10",
